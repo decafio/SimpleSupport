@@ -7,6 +7,6 @@ This project was created to learn ASP.NET MVC, Bootstrap, Entity Framework, jQue
 
 We are currently refactoring the code as way to learn various patterns and best practices. These include things like Repository Pattern and some of the SOLID principles.
 
-Thank You,
-Jason Smith
+Thank You,<br />
+Jason Smith<br />
 http://decaf.io
