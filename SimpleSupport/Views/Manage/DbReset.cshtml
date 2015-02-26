@@ -1,0 +1,112 @@
+﻿@model SimpleSupport.ViewModel.DbResetViewModel
+
+@{
+    ViewBag.Title = "DbReset";
+}
+
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <div class="box">
+            <div class="box-header"><label class="title">Database Clear and Reinitialize Options</label></div>
+            <div class="box-content">
+                <div id="CreateCaseForm">
+                    <!-- Beginning of the "CreateCase" form -->
+                    @using (Html.BeginForm("DbReset", "Manage", FormMethod.Post, new { role = "form", id = "SubmitForm" }))
+                    {
+                        @Html.AntiForgeryToken();
+                        <div class="row text-center">
+                            <div class="col-xs-4">
+                                <button type="submit" id="btnSave" name="Command" class="btn btn-primary coolfactor" value="BuildDb">Re-Build Database</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" id="btnSave" name="Command" class="btn btn-primary coolfactor" value="SupportTables">Seed Code Tables</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" id="btnSubmit" name="Command" class="btn btn-primary coolfactor" value="TestCases">Seed Test Cases</button>
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true)
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header"><label class="title">Code Table Counts</label></div>
+            <div class="box-content">
+                <table class="table table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">City<br />Taxes</th>
+                            <th class="text-center">Income<br />Types</th>
+                            <th class="text-center">Deduction<br />Types</th>
+                            <th class="text-center">Party<br />Types</th>
+                            <th class="text-center">Filing<br />Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Actual</strong></td>
+                            <td>@Model.Counts.CityTaxes</td>
+                            <td>@Model.Counts.IncomeTypes</td>
+                            <td>@Model.Counts.DeductionTypes</td>
+                            <td>@Model.Counts.PartTypes</td>
+                            <td>@Model.Counts.FilingStatus</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Correct</strong></td>
+                            <td>45</td>
+                            <td>22</td>
+                            <td>9</td>
+                            <td>3</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header"><label class="title">Support Table Counts</label></div>
+            <div class="box-content">
+                <table class="table table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">Cases</th>
+                            <th class="text-center">Children</th>
+                            <th class="text-center">Deductions</th>
+                            <th class="text-center">Incomes</th>
+                            <th class="text-center">ParentingTimes</th>
+                            <th class="text-center">Parites</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Actual</strong></td>
+                            <td>@Model.Counts.Cases</td>
+                            <td>@Model.Counts.Children</td>
+                            <td>@Model.Counts.Deductions</td>
+                            <td>@Model.Counts.Incomes</td>
+                            <td>@Model.Counts.ParentingTimes</td>
+                            <td>@Model.Counts.Parties</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Correct</strong></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-3"></div>
+</div>

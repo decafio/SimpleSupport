@@ -1,0 +1,152 @@
+﻿@model IEnumerable<SimpleSupport.ViewModels.CaseViewModel>
+
+@{
+    Layout = "~/Views/Support/_LayoutNoMenu.cshtml";
+}
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Custom/Case.js")
+}
+
+<!------------- Help Model for Page ------------------->
+<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Case Screen Help</h4>
+                        <i id="VideoHelp" class="fa fa-youtube-square"> Watch Video Tutorial</i>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>The <strong>Case Screen</strong> provides a list of cases you currently have setup on <strong>ZapLeaf - Beta Version</strong>.</p>
+                <p><strong>Case Number Column</strong><br />Clicking on the <strong>Case Number</strong> will take you to the Party Information page of the case.</p>
+                <p><strong>Edit Link</strong><br />Allows you to edit the Case Number and the Filing County.</p>
+                <p><strong>Delete Link</strong><br />Presents a delete confirmation for the case.</p>
+                <p>
+                    <strong>Quick Estimate</strong><br />The <strong>Quick Estimate</strong> button allows you to enter only the bare minimum information required to get a child support estimate.
+                    After entering the information you can just get a estimate or save the information to update later.<br /><br />
+                    If you plan on printing any PDFs you will need to provided further information such as addresses, child names, and child birthdates.
+                </p>
+                <div id="Video" class="text-center">
+                    <hr />
+                    <iframe width="570" height="465" src="//www.youtube.com/embed/FvNQy1R7X4k" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModelVideoHelp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Creating A Case</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <iframe width="570" height="465" src="//www.youtube.com/embed/FvNQy1R7X4k" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.ErrorMessage != "")
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-danger">@Html.Raw(ViewBag.ErrorMessage)</div>
+        </div>
+    </div>
+}
+
+@* Modal window for deleting the cases *@
+@foreach (var aCase in Model)
+{
+    <div class="modal fade" id="myModal@(aCase.CaseId)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div>Are you sure you want to delete case <strong>@(aCase.CaseNumber)</strong>?</div>
+                    <hr />
+                    <button type="button" class="btn btn-primary coolfactor" data-dismiss="modal">Cancel</button>
+                    @Html.ActionLink("Delete", "DeleteCase", new { id = aCase.CaseId }, new { @class = "btn btn-primary coolfactor" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="AttachedCases" class="box">
+    <div class="box-header">
+        <label class="title">Current Cases</label>
+        <div class="pull-right">
+            <button class="btn btn-link coolfactor" data-toggle="modal" data-target="#helpModal" onclick="return false;">
+                <i class="fa fa-question-circle fa-lg"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-content padded">
+        @if (Model.Count() == 0)
+        {
+            <text><p>No cases have been created.</p></text>
+        }
+        else
+        {
+            <div class="text-primary text-center" id="DeleteCaseWarning">
+                <h5><span id="DeleteMessage" class="coolfactor"></span></h5>
+            </div>
+            <table class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            <label>Case Number</label>
+                        </th>
+                        <th class="text-center">
+                            <label>Case Title</label>
+                        </th>
+                        <th class="text-center">
+                            <label>Children</label>
+                        </th>
+                        <th class="text-center">
+                            <label>Filing County</label>
+                        </th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                @foreach (var aCase in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.ActionLink(aCase.CaseNumber, "PartyInformation", new { id = aCase.CaseId })
+                            @Html.Hidden("CaseNumber" + aCase.CaseId, aCase.CaseNumber)
+                            @Html.Hidden("CaseId" + aCase.CaseId, aCase.CaseId)
+                        </td>
+                        <td class="text-center">
+                            <span>@(aCase.CaseTitle)</span>
+                        </td>
+                        <td class="text-center">
+                            <label>@(aCase.ChildCount.ToString())</label>
+                        </td>
+                        <td>
+                            <a id="EditCase@(aCase.CaseId)" class="btn-link coolfactor" href="javascript:void(0);">Edit</a> |
+                            <a href="" data-toggle="modal" data-target="#myModal@(aCase.CaseId)">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
