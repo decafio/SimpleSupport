@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SimpleSupport.ViewModels.CaseViewModel>
+
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Custom/Case.js")
+}
+
+@if (ViewBag.ErrorMessage != "")
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-danger">@Html.Raw(ViewBag.ErrorMessage)</div>
+        </div>
+    </div>
+}
+
+    @* Modal window for deleting the cases *@
+    @foreach (var aCase in Model)
+    {
+        <div class="modal fade" id="myModal@(aCase.CaseId)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div>Are you sure you want to delete case <strong>@(aCase.CaseNumber)</strong>?</div>
+                        <hr />
+                        <button type="button" class="btn btn-primary coolfactor" data-dismiss="modal">Cancel</button>
+                        @Html.ActionLink("Delete", "DeleteCase", new { id = aCase.CaseId }, new { @class = "btn btn-primary coolfactor" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title h4">
+                        Current Cases
+                    </div>
+                </div>
+
+                @if (Model.Count() == 0)
+                {
+                    <text><p>No cases have been created.</p></text>
+                }
+                else
+                {
+                    <div class="text-primary text-center" id="DeleteCaseWarning">
+                        <h5><span id="DeleteMessage" class="coolfactor"></span></h5>
+                    </div>
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <label>Case Number</label>
+                                </th>
+                                <th class="text-center">
+                                    <label>Case Title</label>
+                                </th>
+                                <th class="text-center">
+                                    <label>Children</label>
+                                </th>
+                                <th class="text-center">
+                                    <label>Delete</label>
+                                </th>
+                            </tr>
+                        </thead>
+                        @foreach (var aCase in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.ActionLink(aCase.CaseNumber, "PartyInformation", new { id = aCase.CaseId })
+                                    @Html.Hidden("CaseNumber" + aCase.CaseId, aCase.CaseNumber)
+                                    @Html.Hidden("CaseId" + aCase.CaseId, aCase.CaseId)
+                                </td>
+                                <td class="text-center">
+                                    <span>@(aCase.CaseTitle)</span>
+                                </td>
+                                <td class="text-center">
+                                    <label>@(aCase.ChildCount.ToString())</label>
+                                </td>
+                                <td class="text-center">
+                                    <a href="" data-toggle="modal" data-target="#myModal@(aCase.CaseId)">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>

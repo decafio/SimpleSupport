@@ -18,12 +18,12 @@ using System.Net;
 
 namespace SimpleSupport.Controllers
 {
-    public partial class CaseController : Controller
+    public partial class CasesController : Controller
     {
         private SupportContext db = new SupportContext();
 
         [Authorize]
-        public async Task<ActionResult> Cases(int id)
+        public async Task<ActionResult> Index()
         {
             var model = new List<CaseViewModel>();
             var caseRepo = new CasesRepository(db);
