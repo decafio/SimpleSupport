@@ -30,18 +30,30 @@ namespace SimpleSupport.DAL
         {
         }
 
+        /// <summary>
+        /// Add/Insert an entity to the database
+        /// </summary>
+        /// <param name="newItem">Any class in the context passed to the constructor.</param>
         public async Task AddAsync(T newItem)
         {
             _dbContext.Set<T>().Add(newItem);
             await _dbContext.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Remove/Delete an entity from the database
+        /// </summary>
+        /// <param name="entity">Any class in the context passed to the constructor.</param>
         public async Task RemoveAsync(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
             await _dbContext.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Updates an entity that already exists in the database
+        /// </summary>
+        /// <param name="entity">Any class in the context passed to the constructor.</param>
         public async Task UpdateAsync(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;

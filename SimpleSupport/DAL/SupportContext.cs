@@ -21,7 +21,6 @@ namespace SimpleSupport.DAL
         public DbSet<FilingStatus> FilingStatus { get; set; }
         public DbSet<Income> Incomes { get; set; }
         public DbSet<IncomeType> IncomeTypes { get; set; }
-        public DbSet<ParentingTime> ParentingTimes { get; set; }
         public DbSet<Party> Parties { get; set; }
         public DbSet<PartyType> PartyTypes { get; set; }
 
@@ -32,8 +31,16 @@ namespace SimpleSupport.DAL
             modelBuilder.Entity<Party>().Property(x => x.ChildCareAmount).HasPrecision(8, 2);
             modelBuilder.Entity<Party>().Property(x => x.HealthCareAmount).HasPrecision(8, 2);
             modelBuilder.Entity<CityTax>().Property(x => x.TaxRate).HasPrecision(6, 3);
+
+            // Setup cascading deletes in database
+            // i.e. If Case is deleted, casecade delete Child
+            //  http://stackoverflow.com/questions/14898128/ef-code-first-cascade-delete-on-foreign-key-one-to-many
+            // modelBuilder.Entity<Case>().HasMany(v => v.Children).WithOptional().WillCascadeOnDelete(true);
+            // modelBuilder.Entity<Case>().HasMany(v => v.Parties).WithOptional().WillCascadeOnDelete(true);
+            // modelBuilder.Entity<Party>().HasMany(v => v.Incomes).WithOptional().WillCascadeOnDelete(true);
+            // modelBuilder.Entity<Party>().HasMany(v => v.Deductions).WithOptional().WillCascadeOnDelete(true);
+
+            base.OnModelCreating(modelBuilder);
         }
-
-
     }
 }

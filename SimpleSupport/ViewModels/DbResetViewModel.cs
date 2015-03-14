@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SimpleSupport.ViewModel
+namespace SimpleSupport.ViewModels
 {
     public class DbResetViewModel
     {

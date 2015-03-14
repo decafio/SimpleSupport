@@ -18,13 +18,20 @@ namespace SimpleSupport.DAL
             _dbContext = dbContext;
         }
 
-        // public async Task<TEntity> GetByIdAsync(int id) 
+        /// <summary>
+        /// Returns a list of cases.
+        /// </summary>
+        /// <param name="userId">Required to verify user has access to cases.</param>
         public async Task<List<Case>> CasesByUserAsync(string userId)
         {
             // Include -- Eagerly Loading the Parties
             return await _dbContext.Cases.Where(p => p.AspNetUserId == userId).Include(c => c.Parties).ToListAsync();
         }
 
+        /// <summary>
+        /// Returns a single case.
+        /// </summary>
+        /// <param name="userId">Required to verify user has access to case.</param>
         public async Task<Case> CaseByIdAsync(int caseId, string userId)
         {
             return await _dbContext.Cases.Where(m => m.CaseId == caseId).Where(p => p.AspNetUserId == userId).FirstAsync();

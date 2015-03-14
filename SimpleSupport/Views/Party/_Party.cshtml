@@ -1,0 +1,64 @@
+﻿@model SimpleSupport.ViewModels.PartyViewModel
+
+<div class="collapse" id="@(Model.PartyId + "Collapse")">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title h4">@Model.Name</div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            @Html.LabelFor(m => m.Name)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="A description for this party."></span>
+                            @Html.TextBoxFor(m => Model.Name, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(m => m.AdditionalChildren)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Number of adopted or biological children outside of the marriage."></span>
+                            @Html.TextBoxFor(m => Model.AdditionalChildren, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.HealthCareAmount)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Monthly Health Insurance Premium paid per child."></span>
+                            @Html.TextBoxFor(m => Model.HealthCareAmount, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.ChildCareAmount)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Total Monthly Child Care Costs for all children."></span>
+                            @Html.TextBoxFor(m => Model.ChildCareAmount, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    @if (Model.PartyTypeCode != "3")
+                    {
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            @Html.LabelFor(m => m.FilingStatusId)
+                            @Html.DropDownListFor(m => m.FilingStatusId, Model.FilingStatuses, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="EditExemptions">Exemptions</label>
+                            @Html.TextBoxFor(m => Model.Exemptions, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="EditExemptionsUnder17">Exemptions 17</label>
+                            @Html.TextBoxFor(m => Model.ExemptionsUnder17, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(m => m.CityTaxID)
+                            @Html.DropDownListFor(m => m.CityTaxID, Model.CityTaxes, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    }
+                    <br />
+                    <div class="col-sm-3 pull-right">
+                        <button type="submit" class="btn btn-primary btn-block" value="Submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

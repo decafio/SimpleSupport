@@ -1,0 +1,57 @@
+﻿@model SimpleSupport.ViewModels.PartiesViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+}
+
+
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title h4">
+                    Parties for Case: @Html.ActionLink(Model.CaseNumber, "Index", "Cases", new { id = Model.CaseId }, null)
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="col-sm-4">
+                    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#@(Model.ParentA.PartyId + "Collapse")" aria-expanded="false" aria-controls="#@(Model.ParentA.PartyId + "Collapse")">@Model.ButtonParentA</button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#@(Model.ParentB.PartyId + "Collapse")" aria-expanded="false" aria-controls="#@(Model.ParentB.PartyId + "Collapse")">@Model.ButtonParentB</button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#@(Model.ThirdParty.PartyId + "Collapse")" aria-expanded="false" aria-controls="#@(Model.ThirdParty.PartyId + "Collapse")">@Model.ButtonThird</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form class="form-inline">
+    @if (Model.ParentA != null)
+    {
+        @Html.Partial("_Party", Model.ParentA)
+    }
+
+    @if (Model.ParentB != null)
+    {
+        @Html.Partial("_Party", Model.ParentB)
+    }
+
+    @if (Model.ThirdParty != null)
+    {
+        @Html.Partial("_Party", Model.ThirdParty)
+    }
+</form>

@@ -10,7 +10,6 @@ namespace SimpleSupport.Models
         {
             this.Parties = new HashSet<Party>();
             this.Children = new HashSet<Child>();
-            this.ParentingTimes = new HashSet<ParentingTime>();
         }
 
         [Key]
@@ -26,6 +25,5 @@ namespace SimpleSupport.Models
 
         public virtual ICollection<Party> Parties { get; set; }
         public virtual ICollection<Child> Children { get; set; }
-        public virtual ICollection<ParentingTime> ParentingTimes { get; set; }
     }
 }

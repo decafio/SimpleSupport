@@ -170,18 +170,21 @@
     <Compile Include="Controllers\CasesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PartyController.cs" />
     <Compile Include="DAL\BaseRepository.cs" />
     <Compile Include="DAL\CasesRepository.cs" />
     <Compile Include="DAL\ChildrenRepository.cs" />
+    <Compile Include="DAL\CityTaxRepository.cs" />
+    <Compile Include="DAL\FilingStatusRepository.cs" />
     <Compile Include="DAL\Initializer.cs" />
-    <Compile Include="DAL\ParentingTimeRepository.cs" />
+    <Compile Include="DAL\PartyTypeRepository.cs" />
     <Compile Include="DAL\SupportContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502241700259_Init-1.cs" />
-    <Compile Include="Migrations\201502241700259_Init-1.Designer.cs">
-      <DependentUpon>201502241700259_Init-1.cs</DependentUpon>
+    <Compile Include="Migrations\201503080505173_Init.cs" />
+    <Compile Include="Migrations\201503080505173_Init.Designer.cs">
+      <DependentUpon>201503080505173_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -196,13 +199,14 @@
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\IncomeType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ParentingTime.cs" />
     <Compile Include="Models\Party.cs" />
     <Compile Include="Models\PartyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CaseViewModel.cs" />
     <Compile Include="ViewModels\DbResetViewModel.cs" />
+    <Compile Include="ViewModels\PartiesViewModel.cs" />
+    <Compile Include="ViewModels\PartyViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -226,7 +230,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SupportFiles\AddContraints.sql" />
     <Content Include="SupportFiles\EmptySupportTables.sql" />
+    <Content Include="SupportFiles\RebuildSupportTables.sql" />
     <Content Include="SupportFiles\SeedCodeTables.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -265,9 +271,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cases\Index.cshtml" />
     <Content Include="Views\Manage\DbReset.cshtml" />
+    <Content Include="Views\Cases\Summary.cshtml" />
+    <Content Include="Views\Party\Index.cshtml" />
+    <Content Include="Views\Party\_Party.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Parties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -277,8 +287,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502241700259_Init-1.resx">
-      <DependentUpon>201502241700259_Init-1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503080505173_Init.resx">
+      <DependentUpon>201503080505173_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

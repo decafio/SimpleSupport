@@ -3,7 +3,7 @@ namespace SimpleSupport.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init1 : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -22,66 +22,12 @@ namespace SimpleSupport.Migrations
                 c => new
                     {
                         ChildId = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(nullable: false),
-                        LastName = c.String(nullable: false),
-                        ParentingTimeId = c.Int(),
-                        ThirdPartyCustody = c.Boolean(),
+                        Name = c.String(nullable: false),
+                        Overnights = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ThirdPartyCustody = c.Boolean(nullable: false),
                         Case_CaseId = c.Int(),
                     })
                 .PrimaryKey(t => t.ChildId)
-                .ForeignKey("dbo.Cases", t => t.Case_CaseId)
-                .ForeignKey("dbo.ParentingTimes", t => t.ParentingTimeId)
-                .Index(t => t.ParentingTimeId)
-                .Index(t => t.Case_CaseId);
-            
-            CreateTable(
-                "dbo.ParentingTimes",
-                c => new
-                    {
-                        ParentingTimeId = c.Int(nullable: false, identity: true),
-                        SchoolAMonday = c.Boolean(nullable: false),
-                        SchoolATuesday = c.Boolean(nullable: false),
-                        SchoolAWednesday = c.Boolean(nullable: false),
-                        SchoolAThursday = c.Boolean(nullable: false),
-                        SchoolAFriday = c.Boolean(nullable: false),
-                        SchoolASaturday = c.Boolean(nullable: false),
-                        SchoolASunday = c.Boolean(nullable: false),
-                        SchoolBMonday = c.Boolean(nullable: false),
-                        SchoolBTuesday = c.Boolean(nullable: false),
-                        SchoolBWednesday = c.Boolean(nullable: false),
-                        SchoolBThursday = c.Boolean(nullable: false),
-                        SchoolBFriday = c.Boolean(nullable: false),
-                        SchoolBSaturday = c.Boolean(nullable: false),
-                        SchoolBSunday = c.Boolean(nullable: false),
-                        SchoolWeeks = c.Short(nullable: false),
-                        SummerAMonday = c.Boolean(nullable: false),
-                        SummerATuesday = c.Boolean(nullable: false),
-                        SummerAWednesday = c.Boolean(nullable: false),
-                        SummerAThursday = c.Boolean(nullable: false),
-                        SummerAFriday = c.Boolean(nullable: false),
-                        SummerASaturday = c.Boolean(nullable: false),
-                        SummerASunday = c.Boolean(nullable: false),
-                        SummerBMonday = c.Boolean(nullable: false),
-                        SummerBTuesday = c.Boolean(nullable: false),
-                        SummerBWednesday = c.Boolean(nullable: false),
-                        SummerBThursday = c.Boolean(nullable: false),
-                        SummerBFriday = c.Boolean(nullable: false),
-                        SummerBSaturday = c.Boolean(nullable: false),
-                        SummerBSunday = c.Boolean(nullable: false),
-                        SummerWeeks = c.Short(nullable: false),
-                        MemorialDay = c.Short(),
-                        LaborDay = c.Short(),
-                        July4th = c.Short(),
-                        ThanksGiving = c.Short(),
-                        SpringBreak = c.Short(),
-                        ChristmasEve = c.Short(),
-                        ChristmasDay = c.Short(),
-                        MothersDay = c.Short(),
-                        FathersDay = c.Short(),
-                        Offset = c.Short(),
-                        Case_CaseId = c.Int(),
-                    })
-                .PrimaryKey(t => t.ParentingTimeId)
                 .ForeignKey("dbo.Cases", t => t.Case_CaseId)
                 .Index(t => t.Case_CaseId);
             
@@ -220,8 +166,6 @@ namespace SimpleSupport.Migrations
             DropForeignKey("dbo.Deductions", "DeductionType_DeductionTypeId", "dbo.DeductionTypes");
             DropForeignKey("dbo.Parties", "CityTax_CityTaxId", "dbo.CityTaxes");
             DropForeignKey("dbo.Parties", "Case_CaseId", "dbo.Cases");
-            DropForeignKey("dbo.ParentingTimes", "Case_CaseId", "dbo.Cases");
-            DropForeignKey("dbo.Children", "ParentingTimeId", "dbo.ParentingTimes");
             DropForeignKey("dbo.Children", "Case_CaseId", "dbo.Cases");
             DropIndex("dbo.Incomes", new[] { "Party_PartyId" });
             DropIndex("dbo.Incomes", new[] { "IncomeType_IncomeTypeId" });
@@ -231,9 +175,7 @@ namespace SimpleSupport.Migrations
             DropIndex("dbo.Parties", new[] { "FilingStatus_FilingStatusId" });
             DropIndex("dbo.Parties", new[] { "CityTax_CityTaxId" });
             DropIndex("dbo.Parties", new[] { "Case_CaseId" });
-            DropIndex("dbo.ParentingTimes", new[] { "Case_CaseId" });
             DropIndex("dbo.Children", new[] { "Case_CaseId" });
-            DropIndex("dbo.Children", new[] { "ParentingTimeId" });
             DropTable("dbo.PartyTypes");
             DropTable("dbo.IncomeTypes");
             DropTable("dbo.Incomes");
@@ -242,7 +184,6 @@ namespace SimpleSupport.Migrations
             DropTable("dbo.Deductions");
             DropTable("dbo.CityTaxes");
             DropTable("dbo.Parties");
-            DropTable("dbo.ParentingTimes");
             DropTable("dbo.Children");
             DropTable("dbo.Cases");
         }

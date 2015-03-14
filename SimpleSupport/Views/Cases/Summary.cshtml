@@ -1,0 +1,94 @@
+﻿@model SimpleSupport.Models.Case
+
+@{
+    ViewBag.Title = "Summary";
+}
+
+<div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Case: @Html.DisplayFor(model => model.CaseNumber) / Id: @Html.DisplayFor(model => model.CaseId)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="panel panel-default">
+                <table class="table table-condensed table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th>Child Id</th>
+                            <th>Child Name</th>
+                            <th>Overnights</th>
+                            <th>Third Party Custody</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var child in Model.Children)
+                        {
+                            <tr>
+                                <td>@child.ChildId</td>
+                                <td>@child.Name</td>
+                                <td>@child.Overnights</td>
+                                <td>@child.ThirdPartyCustody</td>
+                                <td>@Html.ActionLink("Edit", "Index", "Party", new { id = Model.CaseId }, null)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <table class="table table-condensed table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th>Party Id</th>
+                            <th>Type</th>
+                            <th>Execeptions</th>
+                            <th>Exemptions Under 17</th>
+                            <th>Health Care Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var party in Model.Parties)
+                        {
+                            <tr>
+                                <td>@party.PartyId</td>
+                                <td>@party.PartyType.Name</td>
+                                <td>@party.Exemptions</td>
+                                <td>@party.ExemptionsUnder17</td>
+                                <td>@party.HealthCareAmount</td>
+                            </tr>
+                            foreach (var income in party.Incomes)
+                            {
+                                <tr class="success">
+                                    <td><strong>I</strong></td>
+                                    <td>@income.IncomeId</td>
+                                    <td>@income.IncomeType.Name</td>
+                                    <td>@income.IncomeType.Code</td>
+                                    <td>@income.Amount</td>
+                                </tr>
+                            }
+                            foreach (var deduction in party.Deductions)
+                            {
+                                <tr class="alert-danger">
+                                    <td><strong>D</strong></td>
+                                    <td>@deduction.DeductionId</td>
+                                    <td>@deduction.DeductionType.Name</td>
+                                    <td>@deduction.DeductionType.Code</td>
+                                    <td>@deduction.Amount</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <strong>@Html.DisplayNameFor(model => model.AspNetUserId):</strong> @Html.DisplayFor(model => model.AspNetUserId)
+</div>

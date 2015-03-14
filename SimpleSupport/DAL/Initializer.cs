@@ -61,89 +61,95 @@ namespace SimpleSupport.DAL
             PartyType pt3 = context.PartyTypes.Where(c => c.Code == "3").First();
 
             // Create some cases
-            var case1 = new Case() { AspNetUserId = userId, CaseNumber = "14-42566-DM" };
-            var case2 = new Case() { AspNetUserId = userId, CaseNumber = "12-23434-DM" };
+            Random rnd = new Random();
+            int caseNo1A = rnd.Next(10, 99);
+            int caseNo1B = rnd.Next(10, 99);
+            int caseNo2A = rnd.Next(16238, 99999);
+            int caseNo2B = rnd.Next(16238, 99999);
+
+            var case1 = new Case() { AspNetUserId = userId, CaseNumber = caseNo1A + "-" + caseNo2B + "-Test" };
+            var case2 = new Case() { AspNetUserId = userId, CaseNumber = caseNo1B + "-" + caseNo2A + "-Test" };
 
             context.Cases.Add(case1);
             context.Cases.Add(case2);
             SaveChanges(context);
 
-            // Create some ParentingTime objects
-            ParentingTime pt1 = new ParentingTime()
-            {
-                SchoolAMonday = true,
-                SchoolATuesday = true,
-                SchoolAWednesday = true,
-                SchoolAThursday = true,
-                SchoolAFriday = true,
-                SchoolASaturday = true,
-                SchoolASunday = true,
-                SchoolBMonday = false,
-                SchoolBTuesday = false,
-                SchoolBWednesday = false,
-                SchoolBThursday = false,
-                SchoolBFriday = false,
-                SchoolBSaturday = true,
-                SchoolBSunday = true,
-                SummerAMonday = true,
-                SummerATuesday = true,
-                SummerAWednesday = true,
-                SummerAThursday = false,
-                SummerAFriday = false,
-                SummerASaturday = true,
-                SummerASunday = true,
-                SummerBMonday = false,
-                SummerBTuesday = true,
-                SummerBWednesday = false,
-                SummerBThursday = true,
-                SummerBFriday = true,
-                SummerBSaturday = true,
-                SummerBSunday = false
-            };
+            //// Create some ParentingTime objects
+            //ParentingTime pt1 = new ParentingTime()
+            //{
+            //    SchoolAMonday = true,
+            //    SchoolATuesday = true,
+            //    SchoolAWednesday = true,
+            //    SchoolAThursday = true,
+            //    SchoolAFriday = true,
+            //    SchoolASaturday = true,
+            //    SchoolASunday = true,
+            //    SchoolBMonday = false,
+            //    SchoolBTuesday = false,
+            //    SchoolBWednesday = false,
+            //    SchoolBThursday = false,
+            //    SchoolBFriday = false,
+            //    SchoolBSaturday = true,
+            //    SchoolBSunday = true,
+            //    SummerAMonday = true,
+            //    SummerATuesday = true,
+            //    SummerAWednesday = true,
+            //    SummerAThursday = false,
+            //    SummerAFriday = false,
+            //    SummerASaturday = true,
+            //    SummerASunday = true,
+            //    SummerBMonday = false,
+            //    SummerBTuesday = true,
+            //    SummerBWednesday = false,
+            //    SummerBThursday = true,
+            //    SummerBFriday = true,
+            //    SummerBSaturday = true,
+            //    SummerBSunday = false
+            //};
 
-            // Create some ParentingTime objects
-            ParentingTime pt2 = new ParentingTime()
-            {
-                SchoolAMonday = false,
-                SchoolATuesday = true,
-                SchoolAWednesday = true,
-                SchoolAThursday = true,
-                SchoolAFriday = false,
-                SchoolASaturday = true,
-                SchoolASunday = true,
-                SchoolBMonday = false,
-                SchoolBTuesday = false,
-                SchoolBWednesday = false,
-                SchoolBThursday = false,
-                SchoolBFriday = false,
-                SchoolBSaturday = true,
-                SchoolBSunday = true,
-                SummerAMonday = true,
-                SummerATuesday = true,
-                SummerAWednesday = false,
-                SummerAThursday = false,
-                SummerAFriday = false,
-                SummerASaturday = true,
-                SummerASunday = true,
-                SummerBMonday = false,
-                SummerBTuesday = false,
-                SummerBWednesday = false,
-                SummerBThursday = false,
-                SummerBFriday = true,
-                SummerBSaturday = true,
-                SummerBSunday = false
-            };
+            //// Create some ParentingTime objects
+            //ParentingTime pt2 = new ParentingTime()
+            //{
+            //    SchoolAMonday = false,
+            //    SchoolATuesday = true,
+            //    SchoolAWednesday = true,
+            //    SchoolAThursday = true,
+            //    SchoolAFriday = false,
+            //    SchoolASaturday = true,
+            //    SchoolASunday = true,
+            //    SchoolBMonday = false,
+            //    SchoolBTuesday = false,
+            //    SchoolBWednesday = false,
+            //    SchoolBThursday = false,
+            //    SchoolBFriday = false,
+            //    SchoolBSaturday = true,
+            //    SchoolBSunday = true,
+            //    SummerAMonday = true,
+            //    SummerATuesday = true,
+            //    SummerAWednesday = false,
+            //    SummerAThursday = false,
+            //    SummerAFriday = false,
+            //    SummerASaturday = true,
+            //    SummerASunday = true,
+            //    SummerBMonday = false,
+            //    SummerBTuesday = false,
+            //    SummerBWednesday = false,
+            //    SummerBThursday = false,
+            //    SummerBFriday = true,
+            //    SummerBSaturday = true,
+            //    SummerBSunday = false
+            //};
 
-            context.ParentingTimes.Add(pt1);
-            context.ParentingTimes.Add(pt2);
-            SaveChanges(context);
+            //context.ParentingTimes.Add(pt1);
+            //context.ParentingTimes.Add(pt2);
+            //SaveChanges(context);
 
             // Create some Child objects
-            Child ch1 = new Child() { Case = case1, FirstName = "John", LastName = "Benix", ParentingTime = pt1 };
-            Child ch2 = new Child() { Case = case1, FirstName = "Alex", LastName = "Benix", ParentingTime = pt1 };
-            Child ch3 = new Child() { Case = case1, FirstName = "Amber", LastName = "Benix", ParentingTime = pt1 };
-            Child ch4 = new Child() { Case = case2, FirstName = "Aaron", LastName = "Marly", ParentingTime = pt2 };
-            Child ch5 = new Child() { Case = case2, FirstName = "Lisa", LastName = "Marly", ParentingTime = pt2 };
+            Child ch1 = new Child() { Case = case1, Name = "John", Overnights = 93.0m };
+            Child ch2 = new Child() { Case = case1, Name = "Alex", Overnights = 57.4m };
+            Child ch3 = new Child() { Case = case1, Name = "Amber", Overnights = 180m };
+            Child ch4 = new Child() { Case = case2, Name = "Aaron", Overnights = 220m };
+            Child ch5 = new Child() { Case = case2, Name = "Lisa", Overnights = 200m };
 
             context.Children.Add(ch1);
             context.Children.Add(ch2);

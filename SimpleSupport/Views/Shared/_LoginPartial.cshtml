@@ -3,14 +3,21 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Cases", "Index", "Cases")</li>
+
+            @if (Url.RequestContext.RouteData.Values["id"] != null)
+            {
+                <li>@Html.ActionLink("Parties", "Index", new { controller = "Party", id = Url.RequestContext.RouteData.Values["id"] }, null)</li>
+                <li>@Html.ActionLink("Children", "Index", new { controller = "Support", id = Url.RequestContext.RouteData.Values["id"] }, null)</li>
+                <li>@Html.ActionLink("Income", "Index", new { controller = "Support", id = Url.RequestContext.RouteData.Values["id"] }, null)</li>
+                <li>@Html.ActionLink("Print", "Print", new { controller = "Support", id = Url.RequestContext.RouteData.Values["id"] }, null)</li>
+            }
+            <li>@Html.ActionLink("Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
     }
 }
 else

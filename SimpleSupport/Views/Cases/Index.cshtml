@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<SimpleSupport.ViewModels.CaseViewModel>
 
+@{
+    ViewBag.Title = "Case List";
+}
 
 @section scripts {
     @Scripts.Render("~/Scripts/Custom/Case.js")
@@ -30,6 +33,7 @@
             </div>
         </div>
     }
+
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
@@ -70,9 +74,7 @@
                         {
                             <tr>
                                 <td class="text-center">
-                                    @Html.ActionLink(aCase.CaseNumber, "PartyInformation", new { id = aCase.CaseId })
-                                    @Html.Hidden("CaseNumber" + aCase.CaseId, aCase.CaseNumber)
-                                    @Html.Hidden("CaseId" + aCase.CaseId, aCase.CaseId)
+                                    @Html.ActionLink(aCase.CaseNumber, "Summary", new { id = aCase.CaseId })
                                 </td>
                                 <td class="text-center">
                                     <span>@(aCase.CaseTitle)</span>

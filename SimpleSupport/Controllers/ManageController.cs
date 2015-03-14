@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
 using SimpleSupport.Models;
-using SimpleSupport.ViewModel;
+using SimpleSupport.ViewModels;
 using SimpleSupport.DAL;
 using System.Data.Entity; // for Async extensions
 
@@ -73,7 +73,7 @@ namespace SimpleSupport.Controllers
             VM.Counts.Children = await db.Children.CountAsync();
             VM.Counts.Deductions = await db.Deductions.CountAsync();
             VM.Counts.Incomes = await db.Incomes.CountAsync();
-            VM.Counts.ParentingTimes = await db.ParentingTimes.CountAsync();
+            //VM.Counts.ParentingTimes = await db.ParentingTimes.CountAsync();
             VM.Counts.Parties = await db.Parties.CountAsync();
 
             return View(VM);

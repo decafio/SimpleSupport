@@ -13,16 +13,16 @@ using SimpleSupport.Classes;
 using SimpleSupport.DAL;
 
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity; // GetUserId
 using System.Net;
 
 namespace SimpleSupport.Controllers
 {
+    [Authorize]
     public partial class CasesController : Controller
     {
         private SupportContext db = new SupportContext();
 
-        [Authorize]
         public async Task<ActionResult> Index()
         {
             var model = new List<CaseViewModel>();
@@ -60,14 +60,17 @@ namespace SimpleSupport.Controllers
             return View(model);
         }
 
-        [Authorize]
         public async Task<ActionResult> DeleteCase(int id)
         {
             if (ModelState.IsValid)
             {
+                var caseRepo = new CasesRepository(db);
+
                 // Check if user has access to this case
                 string userId = User.Identity.GetUserId();
-                Case aCase = await db.Cases.Where(m => m.CaseId == id).Where(p => p.AspNetUserId == userId).FirstAsync();
+
+                //Case aCase = await db.Cases.Where(m => m.CaseId == id).Where(p => p.AspNetUserId == userId).FirstAsync();
+                Case aCase = await caseRepo.CaseByIdAsync(id, userId);
 
                 if (aCase == null)
                 {
@@ -77,13 +80,21 @@ namespace SimpleSupport.Controllers
                 }
                 else
                 {
-                    db.Cases.Remove(aCase);
-                    await db.SaveChangesAsync();
+                    // db.Cases.Remove(aCase);
+                    // await db.SaveChangesAsync();
+                    await caseRepo.RemoveAsync(aCase);
                 }
             }
-
-            return RedirectToAction("Cases", new { id = id });
+            return RedirectToAction("Index", "Cases");
         }
 
+        public async Task<ActionResult> Summary(int id)
+        {
+            var caseRepo = new CasesRepository(db);
+            string userId = User.Identity.GetUserId();
+
+            Case aCase = await caseRepo.CaseByIdAsync(id, userId);
+            return View(aCase);
+        }
 	}
 }
