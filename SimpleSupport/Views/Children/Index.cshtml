@@ -1,0 +1,61 @@
+﻿@model SimpleSupport.ViewModels.ChildrenViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_CaseMenu", Model.CaseMenu)
+
+<!-- Creates the table of Children-->
+<div class="panel panel-default">
+    <div class="panel-heading"><div class="panel-title">Children in Common</div></div>
+    @if (Model.Children.Count() > 0)
+    {
+        <table class="table table-hover table-condensed text-center">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Overnights (Parent A)</th>
+                    <th>Third Party Custody</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var aChild in Model.Children)
+            {
+                <tr>
+                    <td class="text-center">
+                        @aChild.Name
+                    </td>
+                    <td class="text-center">
+                        @aChild.Overnights
+                    </td>
+                    <td class="text-center">
+                        @aChild.ThirdPartyCustody
+                    </td>
+                    <td class="text-center">
+                        <a id="ChildBtn@(aChild.ChildId)" class="btn-link" href="javascript:void(0);">Edit</a> |
+                        <a href="" id="DeleteBtn@(aChild.ChildId)" data-toggle="modal" data-target="#Delete@(aChild.ChildId)" class="btn-link">Delete</a>
+                        <div class="modal fade" id="Delete@(aChild.ChildId)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body text-center">
+                                        <div>Are you sure you want to delete <strong>@(aChild.Name)</strong>?</div>
+                                        <hr />
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                        @Html.ActionLink("Delete", "Delete", new { id = Model.CaseMenu.CaseId, childId = aChild.ChildId }, new { @class = "btn btn-primary" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <text>No children have been added to this case.</text>
+    }
+</div>
+

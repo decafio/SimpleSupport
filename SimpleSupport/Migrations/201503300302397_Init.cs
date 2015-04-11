@@ -12,7 +12,7 @@ namespace SimpleSupport.Migrations
                 c => new
                     {
                         CaseId = c.Int(nullable: false, identity: true),
-                        CaseNumber = c.String(nullable: false),
+                        CaseNumber = c.String(),
                         AspNetUserId = c.String(),
                     })
                 .PrimaryKey(t => t.CaseId);
@@ -22,7 +22,7 @@ namespace SimpleSupport.Migrations
                 c => new
                     {
                         ChildId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
+                        Name = c.String(),
                         Overnights = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ThirdPartyCustody = c.Boolean(nullable: false),
                         Case_CaseId = c.Int(),
@@ -36,7 +36,7 @@ namespace SimpleSupport.Migrations
                 c => new
                     {
                         PartyId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
+                        Name = c.String(),
                         HealthCareAmount = c.Decimal(nullable: false, precision: 8, scale: 2),
                         ChildCareAmount = c.Decimal(nullable: false, precision: 8, scale: 2),
                         Exemptions = c.Short(nullable: false),

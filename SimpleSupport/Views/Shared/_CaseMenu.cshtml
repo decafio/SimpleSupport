@@ -1,0 +1,28 @@
+﻿@model SimpleSupport.ViewModels.CaseMenuViewModel
+
+@if (Url.RequestContext.RouteData.Values["id"] != null)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-1 col-sm-2">
+                    @Html.ActionLink(@Model.CaseNumber, "Summary", new { controller = "Cases", id = Url.RequestContext.RouteData.Values["id"] }, new { @class = "btn ss-btn-sm ss-h4" })
+                </div>
+                <div class="col-lg-11 col-sm-10">
+                    <div class="col-sm-3">
+                        <button href="#" class="dropdown-toggle btn btn-primary btn-block ss-btn-sm" data-toggle="dropdown" role="button" aria-expanded="false">Parties <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink(Model.ParentAButton, "Index", new { controller = "Party", id = Url.RequestContext.RouteData.Values["id"], partyId = Model.ParentAId }, null)</li>
+                            <li>@Html.ActionLink(Model.ParentBButton, "Index", new { controller = "Party", id = Url.RequestContext.RouteData.Values["id"], partyId = Model.ParentBId }, null)</li>
+                            <li>@Html.ActionLink(Model.ThirdPartyButton, "Index", new { controller = "Party", id = Url.RequestContext.RouteData.Values["id"], partyId = Model.ThirdPartyId }, null)</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">@Html.ActionLink("Children", "Index", new { controller = "Children", id = Url.RequestContext.RouteData.Values["id"] }, new { @class = "btn btn-primary btn-block ss-btn-sm" })</div>
+                    <div class="col-sm-3">@Html.ActionLink("Income", "Index", new { controller = "Support", id = Url.RequestContext.RouteData.Values["id"] }, new { @class = "btn btn-primary btn-block ss-btn-sm" })</div>
+                    <div class="col-sm-3">@Html.ActionLink("Print", "Print", new { controller = "Support", id = Url.RequestContext.RouteData.Values["id"] }, new { @class = "btn btn-primary btn-block ss-btn-sm" })</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(s => s.MenuItem)
+}

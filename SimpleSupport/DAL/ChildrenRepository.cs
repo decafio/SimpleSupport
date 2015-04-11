@@ -14,7 +14,8 @@ namespace SimpleSupport.DAL
     {
         private readonly SupportContext _dbContext;
 
-        public ChildrenRepository(SupportContext dbContext) : base(dbContext)
+        public ChildrenRepository(SupportContext dbContext)
+            : base(dbContext)
         {
             _dbContext = dbContext;
         }

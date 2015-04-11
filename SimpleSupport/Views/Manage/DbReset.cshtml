@@ -1,4 +1,4 @@
-﻿@model SimpleSupport.ViewModel.DbResetViewModel
+﻿@model SimpleSupport.ViewModels.DbResetViewModel
 
 @{
     ViewBag.Title = "DbReset";
@@ -17,13 +17,13 @@
                         @Html.AntiForgeryToken();
                         <div class="row text-center">
                             <div class="col-xs-4">
-                                <button type="submit" id="btnSave" name="Command" class="btn btn-primary coolfactor" value="BuildDb">Re-Build Database</button>
+                                <button type="submit" id="btnSave" name="Command" class="btn btn-primary" value="BuildDb">Re-Build Database</button>
                             </div>
                             <div class="col-xs-4">
-                                <button type="submit" id="btnSave" name="Command" class="btn btn-primary coolfactor" value="SupportTables">Seed Code Tables</button>
+                                <button type="submit" id="btnSave" name="Command" class="btn btn-primary" value="SupportTables">Seed Code Tables</button>
                             </div>
                             <div class="col-xs-4">
-                                <button type="submit" id="btnSubmit" name="Command" class="btn btn-primary coolfactor" value="TestCases">Seed Test Cases</button>
+                                <button type="submit" id="btnSubmit" name="Command" class="btn btn-primary" value="TestCases">Seed Test Cases</button>
                             </div>
                         </div>
                         @Html.ValidationSummary(true)

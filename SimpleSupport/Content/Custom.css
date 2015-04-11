@@ -1,6 +1,17 @@
-﻿body {
+﻿.ss-btn-sm {
+  padding: 2px 5px 2px 5px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 3px;
 }
 
-.badge-primary {
-    background-color: #337ab7 !important;
+.ss-h4 {
+  font-size: 15px !important;
+}
+
+.text-center > thead > tr > th,
+.text-center > thead > tr > td,
+.text-center > tr > th,
+.text-center > tr > td {
+    text-align: center !important;
 }

@@ -36,5 +36,16 @@ namespace SimpleSupport.DAL
         {
             return await _dbContext.Cases.Where(m => m.CaseId == caseId).Where(p => p.AspNetUserId == userId).FirstAsync();
         }
+
+        /// <summary>
+        /// Verifies a user has access to a case.
+        /// </summary>
+        public async Task<bool> VerifyAccess(int caseId, string userId)
+        {
+            Case aCase = await CaseByIdAsync(caseId, userId);
+
+            if (aCase == null) return false;
+            else return true; 
+        }
     }
 }

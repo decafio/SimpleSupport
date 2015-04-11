@@ -1,8 +1,6 @@
 namespace SimpleSupport.Models
 {
-    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public class Party
     {
@@ -18,20 +16,10 @@ namespace SimpleSupport.Models
             this.ChildCareAmount = 0.00m;
         }
     
-        [Key]
         public int PartyId { get; set; }
 
-        [Display(Name = "Name")]
-        [Required(ErrorMessage = "Please Provide a Name")]
-        //[RegularExpression(@"^[a-zA-Z'-]+$", ErrorMessage = "Please only use letters, apostrophe, space, or hyphon.")]
         public string Name { get; set; }
-
-        [Display(Name = "Monthly Health Insurance<br/>Premium (per child)")]
-        [Required(ErrorMessage = "Provide a Health Ins. Amount")]
         public decimal HealthCareAmount { get; set; }
-
-        [Display(Name = "Monthly Child Care Costs<br />(total for all children)")]
-        [Required(ErrorMessage = "Provide a Child Care Amount")]
         public decimal ChildCareAmount { get; set; }
 
         // Tax Fields

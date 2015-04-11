@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SimpleSupport.ViewModels.CaseViewModel>
+﻿@model SimpleSupport.ViewModels.CasesViewModel
 
 @{
     ViewBag.Title = "Case List";
@@ -18,7 +18,7 @@
 }
 
     @* Modal window for deleting the cases *@
-    @foreach (var aCase in Model)
+    @foreach (var aCase in Model.Cases)
     {
         <div class="modal fade" id="myModal@(aCase.CaseId)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -26,8 +26,8 @@
                     <div class="modal-body text-center">
                         <div>Are you sure you want to delete case <strong>@(aCase.CaseNumber)</strong>?</div>
                         <hr />
-                        <button type="button" class="btn btn-primary coolfactor" data-dismiss="modal">Cancel</button>
-                        @Html.ActionLink("Delete", "DeleteCase", new { id = aCase.CaseId }, new { @class = "btn btn-primary coolfactor" })
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        @Html.ActionLink("Delete", "DeleteCase", new { id = aCase.CaseId }, new { @class = "btn btn-primary" })
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                @if (Model.Count() == 0)
+                @if (Model.Cases.Count() == 0)
                 {
                     <text><p>No cases have been created.</p></text>
                 }
@@ -70,7 +70,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        @foreach (var aCase in Model)
+                        @foreach (var aCase in Model.Cases)
                         {
                             <tr>
                                 <td class="text-center">

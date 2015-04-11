@@ -1,0 +1,41 @@
+﻿@model SimpleSupport.ViewModels.CaseViewModel
+
+
+@{
+    ViewBag.Title = "New Case";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>@Html.LabelFor(m => m.ParentA.CityTaxes)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Html.TextBoxFor(c => c.ParentA.Name)</td>
+                            <td>@Html.TextBoxFor(c => c.ParentA.AdditionalChildren)</td>
+                            <td>@Html.TextBoxFor(c => c.ParentA.ChildCareAmount)</td>
+                            <td>@Html.TextBoxFor(c => c.ParentA.Exemptions)</td>
+                            <td>@Html.DropDownListFor(m => m.ParentA.CityTaxes, Model.ParentA.CityTaxID)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+
+    </div>
+</div>

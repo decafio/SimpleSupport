@@ -7,11 +7,13 @@ namespace SimpleSupport.Models
     
     public class Child
     {
-        [Key]
+        public Child()
+        {
+            Overnights = 0;
+        }
+
         public int ChildId { get; set; }
 
-        [Display(Name = "Name")]
-        [Required(ErrorMessage = "Provide child's Name")]
         public string Name { get; set; }
         public decimal Overnights { get; set; }
 

@@ -21,10 +21,8 @@ namespace SimpleSupport.Controllers
         //    return View();
         //}
 
-        public async Task<ActionResult> Index(int id)
+        public async Task<ActionResult> Index(int id, int partyId)
         {
-            PartiesViewModel VM = new PartiesViewModel();
-
             SupportContext context = new SupportContext();
             CasesRepository caseRepo = new CasesRepository(context);
             PartyTypeRepository pTypeRepo = new PartyTypeRepository(context);
@@ -35,45 +33,13 @@ namespace SimpleSupport.Controllers
 
             Case aCase = await caseRepo.CaseByIdAsync(id, userId);
 
-            VM.CaseNumber = aCase.CaseNumber;
+            Party thisParty = aCase.Parties.Where(p => p.PartyId == partyId).FirstOrDefault();
 
-            // Populating the Parties
-            Party partyA = aCase.Parties.Where(p => p.PartyType.Code == "A").FirstOrDefault();
-            if (partyA != null)
-            {
-                VM.ParentA = new PartyViewModel(partyA);
-                VM.ParentA.PartyTypeCode = "A";
-                VM.ButtonParentA = "Edit " + partyA.Name;
-            }
-            else VM.ButtonParentA = "Add Parent A";
+            PartyViewModel VM = new PartyViewModel(thisParty);
+            VM.CaseMenu = new CaseMenuViewModel(aCase, "Party");
 
-            Party partyB = aCase.Parties.Where(p => p.PartyType.Code == "B").FirstOrDefault();
-            if (partyB != null)
-            {
-                VM.ParentB = new PartyViewModel(partyB);
-                VM.ParentB.PartyTypeCode = "B";
-                VM.ButtonParentB = "Edit " + partyB.Name;
-            }
-            else VM.ButtonParentB = "Add Parent B";
-
-            Party thirdParty = aCase.Parties.Where(p => p.PartyType.Code == "3").FirstOrDefault();
-            if (thirdParty != null)
-            {
-                VM.ThirdParty = new PartyViewModel(thirdParty);
-                VM.ThirdParty.PartyTypeCode = "3";
-                VM.ButtonThird = "Edit " + thirdParty.Name;
-            }
-            else
-            {
-                VM.ThirdParty = new PartyViewModel();
-                VM.ButtonThird = "Add A Third Party";
-            }
-
-            VM.ParentB.FilingStatuses = VM.ParentA.FilingStatuses;
-            VM.ParentB.CityTaxes = VM.ParentA.CityTaxes;
-
-            VM.ParentA.FilingStatuses = filingStatusRepo.GetFilingStatuses();
-            VM.ParentA.CityTaxes = cityTaxRepo.GetCityTaxTypes();
+            VM.FilingStatuses = filingStatusRepo.GetFilingStatuses();
+            VM.CityTaxes = cityTaxRepo.GetCityTaxTypes();
 
             return View(VM);
         }

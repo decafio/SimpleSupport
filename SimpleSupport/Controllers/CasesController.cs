@@ -25,7 +25,7 @@ namespace SimpleSupport.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var model = new List<CaseViewModel>();
+            var model = new CasesViewModel();
             var caseRepo = new CasesRepository(db);
 
             ViewBag.ErrorMessage = "";
@@ -48,7 +48,7 @@ namespace SimpleSupport.Controllers
                 string nameB = aCase.Parties.Where(c => c.PartyType.Code == "B").First().Name;
                 string caseTitle = nameA + " vs " + nameB;
 
-                model.Add(new CaseViewModel()
+                model.Cases.Add(new SingleCaseViewModel()
                 {
                     CaseId = aCase.CaseId,
                     CaseNumber = aCase.CaseNumber,

@@ -20,5 +20,5 @@ DROP Table __MigrationHistory;
 -- Add-Migration Init
 -- Update-Database -Verbose
 
--- Run Seeding SQL --SeedCalculationTables.sql
+-- Run Seeding SQL --SeedCodeTables.sql
 -- Run Cascade CSL --AddConstraints.sql

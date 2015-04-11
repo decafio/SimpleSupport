@@ -22,6 +22,8 @@
 
             FilingStatuses = new List<SelectListItem>();
             CityTaxes = new List<SelectListItem>();
+
+            CaseMenu = new CaseMenuViewModel();
         }
 
         public PartyViewModel(Party party)
@@ -41,17 +43,19 @@
         }
 
         public int PartyId { get; set; }
+
+        public CaseMenuViewModel CaseMenu { get; set; }
         
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Please Provide a Name")]
         //[RegularExpression(@"^[a-zA-Z'-]+$", ErrorMessage = "Please only use letters, apostrophe, space, or hyphon.")]
         public string Name { get; set; }
 
-        [Display(Name = "Insurance Premium")]
+        [Display(Name = "Monthly Health Insurance<br/>Premium (per child)")]
         [Required(ErrorMessage = "Provide a Health Ins. Amount")]
         public decimal HealthCareAmount { get; set; }
 
-        [Display(Name = "Child Care")]
+        [Display(Name = "Monthly Child Care Costs<br />(total for all children)")]
         [Required(ErrorMessage = "Provide a Child Care Amount")]
         public decimal ChildCareAmount { get; set; }
 
@@ -77,15 +81,22 @@
         public int FilingStatusId { get; set; }
 
         [Display(Name = "Filing Status")]
-        [Required(ErrorMessage = "Provide a Filing Status")]
         public IEnumerable<SelectListItem> FilingStatuses { get; set; }
 
         [Display(Name = "City Tax")]
-        [Required(ErrorMessage = "Enter any local you may have.")]
+        [Required(ErrorMessage = "Enter any local taxes you may have.")]
         public int CityTaxID { get; set; }
 
         [Display(Name = "City Taxes")]
-        [Required(ErrorMessage = "Provide a City Tax")]
         public IEnumerable<SelectListItem> CityTaxes { get; set; }
+
+        [Display(Name = "Income")]
+        public int IncomeId { get; set; }
+
+        [Display(Name = "Income Types")]
+        public IEnumerable<Income> Incomes { get; set; }
+
+        public int DeductionId { get; set; }
+        public IEnumerable<Deduction> Deductions { get; set; }
     }
 }
