@@ -10,6 +10,12 @@ namespace SimpleSupport.ViewModels
 {
     public class ChildrenViewModel
     {
+        public ChildrenViewModel()
+        {
+            CaseMenu = new CaseMenuViewModel();
+            Children = new List<Child>();
+        }
+
         public CaseMenuViewModel CaseMenu { get; set; }
         public List<Child> Children { get; set; }
     }

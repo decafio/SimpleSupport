@@ -25,7 +25,7 @@ namespace SimpleSupport.Controllers
         {
             SupportContext context = new SupportContext();
             CasesRepository caseRepo = new CasesRepository(context);
-            PartyTypeRepository pTypeRepo = new PartyTypeRepository(context);
+            //PartyTypeRepository pTypeRepo = new PartyTypeRepository(context);
             CityTaxRepository cityTaxRepo = new CityTaxRepository(context);
             FilingStatusRepository filingStatusRepo = new FilingStatusRepository(context);
 

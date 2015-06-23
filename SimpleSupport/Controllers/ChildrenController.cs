@@ -23,7 +23,7 @@ namespace SimpleSupport.Controllers
         public async Task<ActionResult> Index(int id)
         {
             CasesRepository caseRepo = new CasesRepository(db);
-            PartyTypeRepository pTypeRepo = new PartyTypeRepository(db);
+            //PartyTypeRepository pTypeRepo = new PartyTypeRepository(db);
 
             string userId = User.Identity.GetUserId();
 

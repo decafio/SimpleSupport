@@ -82,3 +82,45 @@ C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleS
 C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\SimpleSupport.Tests.dll.config
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\SimpleSupport.Tests.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\SimpleSupport.Tests.pdb
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\SimpleSupport.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Owin.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\SimpleSupport.pdb
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\obj\Debug\SimpleSupport.Tests.dll
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\obj\Debug\SimpleSupport.Tests.pdb
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport.Tests\obj\Debug\SimpleSupport.Tests.csprojResolveAssemblyReference.cache

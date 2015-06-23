@@ -3,38 +3,72 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <h3 class="text-center text-primary coolfactor">Create Your Free Account</h3>
+                    <hr />
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <input type="submit" class="btn btn-primary" value="Register" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <h3 class="text-primary coolfactor">No More Feeling Overwhelmed</h3>
+            <p class="featurefont">
+                Never feel in the dark about how numbers are calculated.
+                Every page and section in ZapLeaf - Beta Version has an explanation and reference that relates back to the Michigan Child Support Formula (MCSF).
+                You will always know "Why?"
+            </p>
+        </div>
+        <div class="col-md-12">
+            <h3 class="text-primary coolfactor">Child Support Analysis</h3>
+            <p class="featurefont">
+                See in a glance how much child support would be and who would be paying based on Parenting.
+                This is an excellant piece of paper to have expecially for last minute negotiations and when away from the computer.
+            </p>
+        </div>
+        <div class="col-md-12">
+            <h3 class="text-primary coolfactor">Save Time</h3>
+            <p class="featurefont">
+                We help you save hours, possibly days, over trying to decipher which parts of the MCSF pertains to your situation.
+                The Michigan Child Support Formula (MCSF) consists of 2 documents totalling nearly 120 pages of information, tables, and formulas
+                along with a range of Michigan laws including MCL 552.14, MCL 552.517, and MCR 3.211 just to name a few.
+            </p>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
