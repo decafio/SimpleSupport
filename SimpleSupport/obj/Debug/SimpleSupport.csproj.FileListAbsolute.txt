@@ -113,8 +113,6 @@ C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleS
 C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.pdb
 C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.Migrations.Init.resources
 C:\Users\Jason Smith\Documents\Visual Studio 2013\Projects\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.csproj.GenerateResource.Cache
-C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.Migrations.Init.resources
-C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.csproj.GenerateResource.Cache
 C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.dll
 C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.pdb
 C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\bin\SimpleSupport.dll.config
@@ -172,3 +170,5 @@ C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\bin\Microsoft.Owin.S
 C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.csprojResolveAssemblyReference.cache
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.Migrations.Init.resources
+C:\Users\Jason\Documents\GitHub\SimpleSupport\SimpleSupport\obj\Debug\SimpleSupport.csproj.GenerateResource.Cache

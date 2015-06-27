@@ -8,7 +8,7 @@ namespace SimpleSupport.DAL
     {
 
         public SupportContext()
-            : base("SupportContext")
+            : base("SimpleSupportDbString")
         {
             Database.SetInitializer<SupportContext>(new CreateDatabaseIfNotExists<SupportContext>());
         }

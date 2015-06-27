@@ -1,0 +1,13 @@
+﻿
+------------------------------------------------------------------------------------------------
+--- Changing the Name String used by ApplicationDbContext (Change the DefaultConnection name)---
+http://stackoverflow.com/questions/19813374/asp-net-identity-in-mvc5-set-up-connection-string
+Option 2: Answer to do it progmatically suggests
+new ApplicationDbContext(MyConnectionString)
+
+Look in IdentityModel.cs
+
+Change this
+: base("DefaultConnection", throwIfV1Schema: false)
+to
+: base("SimpleSupportDbString", throwIfV1Schema: false)

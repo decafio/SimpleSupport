@@ -182,9 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503300302397_Init.cs" />
-    <Compile Include="Migrations\201503300302397_Init.Designer.cs">
-      <DependentUpon>201503300302397_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201506271453289_Init.cs" />
+    <Compile Include="Migrations\201506271453289_Init.Designer.cs">
+      <DependentUpon>201506271453289_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -238,6 +238,7 @@
     <Content Include="SupportFiles\EmptySupportTables.sql" />
     <Content Include="SupportFiles\RebuildSupportTables.sql" />
     <Content Include="SupportFiles\SeedCodeTables.sql" />
+    <Content Include="SupportFiles\ThingsChanged.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -287,6 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -296,8 +298,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503300302397_Init.resx">
-      <DependentUpon>201503300302397_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506271453289_Init.resx">
+      <DependentUpon>201506271453289_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

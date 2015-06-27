@@ -4,7 +4,7 @@
 }
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-5">
         <div class="panel panel-default">
             <div class="panel-body">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
@@ -34,7 +34,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <input type="submit" class="btn btn-primary" value="Register" />
+                                <input type="submit" class="btn btn-primary coolfactor" value="Register" />
                             </div>
                         </div>
                     </div>
@@ -43,30 +43,13 @@
         </div>
     </div>
 
-    <div class="col-md-8">
-        <div class="col-md-12">
-            <h3 class="text-primary coolfactor">No More Feeling Overwhelmed</h3>
-            <p class="featurefont">
-                Never feel in the dark about how numbers are calculated.
-                Every page and section in ZapLeaf - Beta Version has an explanation and reference that relates back to the Michigan Child Support Formula (MCSF).
-                You will always know "Why?"
-            </p>
-        </div>
-        <div class="col-md-12">
-            <h3 class="text-primary coolfactor">Child Support Analysis</h3>
-            <p class="featurefont">
-                See in a glance how much child support would be and who would be paying based on Parenting.
-                This is an excellant piece of paper to have expecially for last minute negotiations and when away from the computer.
-            </p>
-        </div>
-        <div class="col-md-12">
-            <h3 class="text-primary coolfactor">Save Time</h3>
-            <p class="featurefont">
-                We help you save hours, possibly days, over trying to decipher which parts of the MCSF pertains to your situation.
-                The Michigan Child Support Formula (MCSF) consists of 2 documents totalling nearly 120 pages of information, tables, and formulas
-                along with a range of Michigan laws including MCL 552.14, MCL 552.517, and MCR 3.211 just to name a few.
-            </p>
-        </div>
+    <div class="col-md-8 col-sm-7">
+        <h3 class="text-primary coolfactor">Disclaimer</h3>
+        <p class="featurefont">
+            This system is currently free to use. As such use it at your own risk. We are not liable for any damages as a result of your use of Simple Support.
+        </p>
+        <p>Very little identfying information is saved in our system. A <strong><em>Case Identifier</em></strong> (which can be anything) to help you determine what case you are looking at and a <strong><em>Party Identifier</em></strong> which can be plantiff and defendant, him and her, fake names, real names, nicknames, jerk, or whatever you want.</p>
+        <p>If you do not agree with this statement, especially the first paragraph and our full disclaimer and privacy policy than do not use this free! application.</p>
     </div>
 </div>
 
