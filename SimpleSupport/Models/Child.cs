@@ -5,14 +5,14 @@ namespace SimpleSupport.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     
-    public class Child
+    public class Child : ISecureModel
     {
         public Child()
         {
             Overnights = 0;
         }
 
-        public int ChildId { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
         public decimal Overnights { get; set; }
@@ -25,5 +25,8 @@ namespace SimpleSupport.Models
 
         // [ForeignKey("Case")]
         public virtual Case Case { get; set; }
+
+        // Interface
+        public string GetUserId() { return Case.AspNetUserId; }       
     }
 }

@@ -6,7 +6,7 @@
 
 <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
-        <div class="panel-heading">Case: @Html.DisplayFor(model => model.CaseNumber) / Id: @Html.DisplayFor(model => model.CaseId)</div>
+        <div class="panel-heading">Case: @Html.DisplayFor(model => model.CaseNumber) / Id: @Html.DisplayFor(model => model.Id)</div>
     </div>
 
 
@@ -24,8 +24,8 @@
                 @foreach (var child in Model.Children)
                 {
                     <tr>
-                        <td>@child.ChildId</td>
-                        <td>@Html.ActionLink(child.Name, "Index", "Children", new { id = Model.CaseId }, null)</td>
+                        <td>@child.Id</td>
+                        <td>@Html.ActionLink(child.Name, "Index", "Children", new { id = Model.Id }, null)</td>
                         <td>@child.Overnights</td>
                         <td>@child.ThirdPartyCustody</td>
                     </tr>
@@ -51,8 +51,8 @@
                 @foreach (var party in Model.Parties)
                 {
                     <tr>
-                        <td>@party.PartyId</td>
-                        <td>@Html.ActionLink(party.PartyType.Name, "Index", new { controller = "Party", id = Url.RequestContext.RouteData.Values["id"], partyId = party.PartyId }, null)</td>
+                        <td>@party.Id</td>
+                        <td>@Html.ActionLink(party.PartyType.Name, "Index", new { controller = "Party", id = Url.RequestContext.RouteData.Values["id"], partyId = party.Id }, null)</td>
                         <td>@party.Exemptions</td>
                         <td>@party.ExemptionsUnder17</td>
                         <td>@party.HealthCareAmount</td>
@@ -61,7 +61,7 @@
                     {
                         <tr class="success">
                             <td><strong>I</strong></td>
-                            <td>@income.IncomeId</td>
+                            <td>@income.Id</td>
                             <td>@income.IncomeType.Name</td>
                             <td>@income.IncomeType.Code</td>
                             <td>@income.Amount</td>
@@ -71,7 +71,7 @@
                     {
                         <tr class="alert-danger">
                             <td><strong>D</strong></td>
-                            <td>@deduction.DeductionId</td>
+                            <td>@deduction.Id</td>
                             <td>@deduction.DeductionType.Name</td>
                             <td>@deduction.DeductionType.Code</td>
                             <td>@deduction.Amount</td>

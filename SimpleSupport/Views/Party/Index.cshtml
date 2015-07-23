@@ -6,77 +6,118 @@
 }
 
 @section scripts {
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
+
 }
 
 @Html.Partial("_CaseMenu", Model.CaseMenu)
 
-<form class="form-inline">
-    <div class="" id="@(Model.PartyId + "Collapse")">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title h4">@Model.Name</div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                @Html.LabelFor(m => m.Name)
-                                <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="A description for this party."></span>
-                                @Html.TextBoxFor(m => Model.Name, new { @class = "form-control input-sm" })
-                            </div>
-                            <div class="col-sm-3">
-                                @Html.LabelFor(m => m.AdditionalChildren)
-                                <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Number of adopted or biological children outside of the marriage."></span>
-                                @Html.TextBoxFor(m => Model.AdditionalChildren, new { @class = "form-control input-sm" })
-                            </div>
-                            <div class="col-sm-3">
-                                @Html.LabelFor(model => model.HealthCareAmount)
-                                <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Monthly Health Insurance Premium paid per child."></span>
-                                @Html.TextBoxFor(m => Model.HealthCareAmount, new { @class = "form-control input-sm" })
-                            </div>
-                            <div class="col-sm-3">
-                                @Html.LabelFor(model => model.ChildCareAmount)
-                                <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Total Monthly Child Care Costs for all children."></span>
-                                @Html.TextBoxFor(m => Model.ChildCareAmount, new { @class = "form-control input-sm" })
-                            </div>
+@using (Html.BeginForm("UpdateParty", "Party", FormMethod.Post, new { @class = "form-inline", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title h4">@Model.Name</div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            @Html.LabelFor(m => m.Name)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="A description for this party."></span>
+                            @Html.TextBoxFor(m => Model.Name, new { @class = "form-control input-sm" })
                         </div>
-                        @if (Model.PartyTypeCode != "3")
-                        {
-                            <br />
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    @Html.LabelFor(m => m.FilingStatusId)
-                                    @Html.DropDownListFor(m => m.FilingStatusId, Model.FilingStatuses, new { @class = "form-control input-sm" })
-                                </div>
-                                <div class="col-sm-3">
-                                    <label for="EditExemptions">Exemptions</label>
-                                    @Html.TextBoxFor(m => Model.Exemptions, new { @class = "form-control input-sm" })
-                                </div>
-                                <div class="col-sm-3">
-                                    <label for="EditExemptionsUnder17">Exemptions 17</label>
-                                    @Html.TextBoxFor(m => Model.ExemptionsUnder17, new { @class = "form-control input-sm" })
-                                </div>
-                                <div class="col-sm-3">
-                                    @Html.LabelFor(m => m.CityTaxID)
-                                    @Html.DropDownListFor(m => m.CityTaxID, Model.CityTaxes, new { @class = "form-control input-sm" })
-                                </div>
-                            </div>
-                        }
+                        <div class="col-sm-3">
+                            @Html.LabelFor(m => m.AdditionalChildren)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Number of adopted or biological children outside of the marriage."></span>
+                            @Html.TextBoxFor(m => Model.AdditionalChildren, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.HealthCareAmount)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Monthly Health Insurance Premium paid per child."></span>
+                            @Html.TextBoxFor(m => Model.HealthCareAmount, new { @class = "form-control input-sm" })
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.ChildCareAmount)
+                            <span class="glyphicon glyphicon-eye-open text-primary" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Total Monthly Child Care Costs for all children."></span>
+                            @Html.TextBoxFor(m => Model.ChildCareAmount, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    @if (Model.PartyTypeCode != "3")
+                    {
                         <br />
                         <div class="row">
-                            <div class="col-sm-3 pull-right">
-                                <button type="submit" class="btn btn-primary btn-block" value="Submit">Submit</button>
+                            <div class="col-sm-3">
+                                @Html.LabelFor(m => m.FilingStatusId)
+                                @Html.DropDownListFor(m => m.FilingStatusId, Model.FilingStatuses, new { @class = "form-control input-sm" })
                             </div>
+                            <div class="col-sm-3">
+                                <label for="EditExemptions">Exemptions</label>
+                                @Html.TextBoxFor(m => Model.Exemptions, new { @class = "form-control input-sm" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="EditExemptionsUnder17">Exemptions 17</label>
+                                @Html.TextBoxFor(m => Model.ExemptionsUnder17, new { @class = "form-control input-sm" })
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.LabelFor(m => m.CityTaxID)
+                                @Html.DropDownListFor(m => m.CityTaxID, Model.CityTaxes, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    }
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-3 pull-right">
+                            <button type="submit" class="btn btn-primary btn-block" value="Submit">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</form>
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title h4">@Model.Name</div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-responsive">
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>AMT</th>
+                        <th>City</th>
+                        <th>Fed</th>
+                        <th>FICA</th>
+                    </tr>
+                    @foreach (var income in Model.Incomes)
+                    {
+                        <tr>
+                            <td>@income.IncomeType.Name</td>
+                            <td>@income.Amount</td>
+                            <td>@income.IncomeType.AMTTax</td>
+                            <td>@income.IncomeType.CityTax</td>
+                            <td>@income.IncomeType.FederalTax</td>
+                            <td>@income.IncomeType.FICA</td>
+                        </tr>
+                    }
+                    @foreach (var deduction in Model.Deductions)
+                    {
+                        <tr>
+                            <td>@deduction.DeductionType.Name</td>
+                            <td>-@deduction.Amount</td>
+                            <td>@deduction.DeductionType.AMTTax</td>
+                            <td>@deduction.DeductionType.CityTax</td>
+                            <td>@deduction.DeductionType.FederalTax</td>
+                            <td>@deduction.DeductionType.FICA</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

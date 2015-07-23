@@ -2,7 +2,7 @@ namespace SimpleSupport.Models
 {
     using System.Collections.Generic;
 
-    public class Case
+    public class Case : ISecureModel
     {
         public Case()
         {
@@ -10,7 +10,7 @@ namespace SimpleSupport.Models
             this.Children = new HashSet<Child>();
         }
 
-        public int CaseId { get; set; }
+        public int Id { get; set; }
 
         public string CaseNumber { get; set; }
 
@@ -19,5 +19,8 @@ namespace SimpleSupport.Models
 
         public virtual ICollection<Party> Parties { get; set; }
         public virtual ICollection<Child> Children { get; set; }
+
+        // Interface
+        public string GetUserId() { return AspNetUserId; }
     }
 }

@@ -172,19 +172,24 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PartyController.cs" />
-    <Compile Include="DAL\BaseRepository.cs" />
-    <Compile Include="DAL\CasesRepository.cs" />
-    <Compile Include="DAL\ChildrenRepository.cs" />
-    <Compile Include="DAL\CityTaxRepository.cs" />
-    <Compile Include="DAL\FilingStatusRepository.cs" />
+    <Compile Include="DAL\Command\CommandChildren.cs" />
+    <Compile Include="DAL\Command\CommandRepository.cs" />
+    <Compile Include="DAL\Query\QueryCases.cs" />
+    <Compile Include="DAL\Query\QueryChildren.cs" />
+    <Compile Include="DAL\Query\QueryCityTax.cs" />
+    <Compile Include="DAL\Query\QueryFilingStatus.cs" />
     <Compile Include="DAL\Initializer.cs" />
+    <Compile Include="DAL\Query\QueryParty.cs" />
+    <Compile Include="DAL\Query\BaseQuery.cs" />
+    <Compile Include="DAL\Query\SecureRepository.cs" />
+    <Compile Include="DAL\SecurityRepository.cs" />
     <Compile Include="DAL\SupportContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506271453289_Init.cs" />
-    <Compile Include="Migrations\201506271453289_Init.Designer.cs">
-      <DependentUpon>201506271453289_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201506290212451_Init.cs" />
+    <Compile Include="Migrations\201506290212451_Init.Designer.cs">
+      <DependentUpon>201506290212451_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -196,6 +201,7 @@
     <Compile Include="Models\DeductionType.cs" />
     <Compile Include="Models\FilingStatus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ISecureModel.cs" />
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\IncomeType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -223,6 +229,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\Main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -298,8 +305,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506271453289_Init.resx">
-      <DependentUpon>201506271453289_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506290212451_Init.resx">
+      <DependentUpon>201506290212451_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

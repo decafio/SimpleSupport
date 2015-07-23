@@ -22,13 +22,15 @@
 
             FilingStatuses = new List<SelectListItem>();
             CityTaxes = new List<SelectListItem>();
+            Incomes = new List<Income>();
+            Deductions = new List<Deduction>();
 
             CaseMenu = new CaseMenuViewModel();
         }
 
         public PartyViewModel(Party party)
         {
-            PartyId = party.PartyId;
+            PartyId = party.Id;
             Name = party.Name;
             HealthCareAmount = party.HealthCareAmount;
             ChildCareAmount = party.ChildCareAmount;
@@ -37,6 +39,9 @@
             AdditionalChildren = party.AdditionalChildren;
             FilingStatusId = party.FilingStatus.FilingStatusId;
             CityTaxID = party.CityTax.CityTaxId;
+
+            Incomes = party.Incomes;
+            Deductions = party.Deductions;
 
             FilingStatuses = new List<SelectListItem>();
             CityTaxes = new List<SelectListItem>();

@@ -9,9 +9,9 @@ GO
 -- Creating foreign key on [CaseId] in table 'Children'
 ALTER TABLE [dbo].[Children]
 ADD CONSTRAINT [FK_CaseChild]
-    FOREIGN KEY ([Case_CaseId])
+    FOREIGN KEY ([Case_Id])
     REFERENCES [dbo].[Cases]
-        ([CaseId])
+        ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --IF OBJECT_ID(N'[dbo].[FK_CaseParentingTime]', 'F') IS NOT NULL
@@ -33,9 +33,9 @@ GO
 -- Creating foreign key on [CaseId] in table 'Parties'
 ALTER TABLE [dbo].[Parties]
 ADD CONSTRAINT [FK_CaseParty]
-    FOREIGN KEY ([Case_CaseId])
+    FOREIGN KEY ([Case_Id])
     REFERENCES [dbo].[Cases]
-        ([CaseId])
+        ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 
 -- --------------------------------------------------
@@ -50,9 +50,9 @@ GO
 -- Creating foreign key on [PartyId] in table 'Incomes'
 ALTER TABLE [dbo].[Incomes]
 ADD CONSTRAINT [FK_PartyIncome]
-    FOREIGN KEY ([Party_PartyId])
+    FOREIGN KEY ([Party_Id])
     REFERENCES [dbo].[Parties]
-        ([PartyId])
+        ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 
 IF OBJECT_ID(N'[dbo].[FK_PartyDeduction]', 'F') IS NOT NULL
@@ -62,9 +62,9 @@ GO
 -- Creating foreign key on [PartyId] in table 'Deductions'
 ALTER TABLE [dbo].[Deductions]
 ADD CONSTRAINT [FK_PartyDeduction]
-    FOREIGN KEY ([Party_PartyId])
+    FOREIGN KEY ([Party_Id])
     REFERENCES [dbo].[Parties]
-        ([PartyId])
+        ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 
 -- --------------------------------------------------

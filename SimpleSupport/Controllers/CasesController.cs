@@ -10,7 +10,10 @@ using System.Web.Mvc;
 using SimpleSupport.ViewModels;
 using SimpleSupport.Models;
 using SimpleSupport.Classes;
+
 using SimpleSupport.DAL;
+using SimpleSupport.DAL.Query;
+using SimpleSupport.DAL.Command;
 
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity; // GetUserId
@@ -26,7 +29,7 @@ namespace SimpleSupport.Controllers
         public async Task<ActionResult> Index()
         {
             var model = new CasesViewModel();
-            var caseRepo = new CasesRepository(db);
+            var caseRepo = new QueryCases(db);
 
             ViewBag.ErrorMessage = "";
             if (Request.QueryString["error"] != null)
@@ -50,7 +53,7 @@ namespace SimpleSupport.Controllers
 
                 model.Cases.Add(new SingleCaseViewModel()
                 {
-                    CaseId = aCase.CaseId,
+                    CaseId = aCase.Id,
                     CaseNumber = aCase.CaseNumber,
                     ChildCount = childCount,
                     CaseTitle = caseTitle
@@ -64,33 +67,33 @@ namespace SimpleSupport.Controllers
         {
             if (ModelState.IsValid)
             {
-                var caseRepo = new CasesRepository(db);
+                var caseCmnd = new CommandRepository<Case>(db);
 
                 // Check if user has access to this case
                 string userId = User.Identity.GetUserId();
 
                 //Case aCase = await db.Cases.Where(m => m.CaseId == id).Where(p => p.AspNetUserId == userId).FirstAsync();
-                Case aCase = await caseRepo.CaseByIdAsync(id, userId);
+                // Case aCase = await caseCmnd.CaseByIdAsync(id, userId);
 
-                if (aCase == null)
-                {
-                    // User does not have access
-                    // ~~TODO~~ Make this redirect to a nicer message
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                else
-                {
+                //if (aCase == null)
+                //{
+                //    // User does not have access
+                //    // ~~TODO~~ Make this redirect to a nicer message
+                //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //}
+                //else
+                //{
                     // db.Cases.Remove(aCase);
                     // await db.SaveChangesAsync();
-                    await caseRepo.RemoveAsync(aCase);
-                }
+                    await caseCmnd.RemoveAsync(id, userId);
+                //}
             }
             return RedirectToAction("Index", "Cases");
         }
 
         public async Task<ActionResult> Summary(int id)
         {
-            var caseRepo = new CasesRepository(db);
+            var caseRepo = new QueryCases(db);
             string userId = User.Identity.GetUserId();
 
             Case aCase = await caseRepo.CaseByIdAsync(id, userId);

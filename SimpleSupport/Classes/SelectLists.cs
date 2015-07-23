@@ -42,7 +42,7 @@ namespace SimpleSupport.Classes
             List<SelectListItem> bothParents = aCase.Parties.Where(p => p.PartyType.Code != "3").ToList().Select(x =>
                 new SelectListItem
                 {
-                    Value = x.PartyId.ToString(),
+                    Value = x.Id.ToString(),
                     Text = x.Name
                 }).ToList<SelectListItem>();
 

@@ -2,7 +2,7 @@ namespace SimpleSupport.Models
 {
     using System.Collections.Generic;
     
-    public class Party
+    public class Party : ISecureModel
     {
         public Party()
         {
@@ -16,7 +16,7 @@ namespace SimpleSupport.Models
             this.ChildCareAmount = 0.00m;
         }
     
-        public int PartyId { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
         public decimal HealthCareAmount { get; set; }
@@ -35,5 +35,8 @@ namespace SimpleSupport.Models
 
         public virtual ICollection<Income> Incomes { get; set; }
         public virtual ICollection<Deduction> Deductions { get; set; }
+
+        // Interface
+        public string GetUserId() { return Case.AspNetUserId; }  
     }
 }

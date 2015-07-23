@@ -34,16 +34,16 @@
                         @aChild.ThirdPartyCustody
                     </td>
                     <td class="text-center">
-                        <a id="ChildBtn@(aChild.ChildId)" class="btn-link" href="javascript:void(0);">Edit</a> |
-                        <a href="" id="DeleteBtn@(aChild.ChildId)" data-toggle="modal" data-target="#Delete@(aChild.ChildId)" class="btn-link">Delete</a>
-                        <div class="modal fade" id="Delete@(aChild.ChildId)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.CaseMenu.CaseId, childId = aChild.Id }, new { @class = "btn btn-primary btn-link" }) |
+                        <a href="" id="DeleteBtn@(aChild.Id)" data-toggle="modal" data-target="#Delete@(aChild.Id)" class="btn-link">Delete</a>
+                        <div class="modal fade" id="Delete@(aChild.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body text-center">
                                         <div>Are you sure you want to delete <strong>@(aChild.Name)</strong>?</div>
                                         <hr />
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                                        @Html.ActionLink("Delete", "Delete", new { id = Model.CaseMenu.CaseId, childId = aChild.ChildId }, new { @class = "btn btn-primary" })
+                                        @Html.ActionLink("Delete", "Delete", new { id = Model.CaseMenu.CaseId, childId = aChild.Id }, new { @class = "btn btn-primary" })
                                     </div>
                                 </div>
                             </div>

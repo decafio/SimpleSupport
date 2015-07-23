@@ -3,7 +3,7 @@ DROP Table Cases;
 DROP Table Children;
 DROP Table Deductions;
 DROP Table Incomes;
-DROP Table ParentingTimes;
+--DROP Table ParentingTimes;
 DROP Table Parties;
 
 DROP Table CityTaxes;
@@ -13,6 +13,8 @@ DROP Table PartyTypes;
 DROP Table IncomeTypes;
 
 DROP Table __MigrationHistory;
+
+-- Delete Migration Folder
 
 -- Open Package Manager Console (Under Tools)
 
