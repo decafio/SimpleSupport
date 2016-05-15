@@ -1,7 +1,7 @@
 # SimpleSupport
 ASP.NET MVC based Michigan Child Support Calculator based on the Michigan Child Support Formula
 
-The current version of SimpleSupport can be found running at http://ZapLeaf.com.
+The current version of SimpleSupport can be found running at http://ZapLeaf.AzureWebsites.net.
 
 This project was created to learn ASP.NET MVC, Bootstrap, Entity Framework, jQuery, and LINQ.
 
